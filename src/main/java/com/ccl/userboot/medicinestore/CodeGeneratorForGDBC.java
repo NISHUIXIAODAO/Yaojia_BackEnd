@@ -27,7 +27,7 @@ public class CodeGeneratorForGDBC {
                             .pathInfo(Collections.singletonMap(OutputFile.other, System.getProperty("user.dir") + "/src/main/resources/mapper/xml")); // 设置Mapper XML生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("Orders") // 设置需要生成的表名
+                    builder.addInclude("Dockers") // 设置需要生成的表名
                             .entityBuilder().naming(NamingStrategy.underline_to_camel).enableLombok() // 生成的实体类使用Lombok
                             .controllerBuilder().enableRestStyle() // 生成 @RestController 控制器
                             .mapperBuilder().enableBaseResultMap().enableBaseColumnList(); // 启用 BaseResultMap 和 BaseColumnList

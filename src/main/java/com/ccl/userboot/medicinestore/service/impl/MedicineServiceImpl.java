@@ -17,16 +17,16 @@ import java.util.List;
 @Service
 public class MedicineServiceImpl extends ServiceImpl<MedicineMapper, Medicine> implements MedicineService {
     @Override
-    public List<MedicineListRespDTO> getUserList(Integer size, Integer offset) {
+    public List<MedicineListRespDTO> getMedicineList(Integer size, Integer offset) {
         Page<Medicine> page = new Page<>(offset, size);
         IPage<Medicine> medicinePage = baseMapper.selectPage(
                 page, new QueryWrapper<>()
         );
         List<Medicine> medicines = medicinePage.getRecords();
-        return convertUserListToDtoList(medicines);
+        return convertMedicineListToDtoList(medicines);
     }
 
-    public List<MedicineListRespDTO> convertUserListToDtoList(List<Medicine> medicines) {
+    public List<MedicineListRespDTO> convertMedicineListToDtoList(List<Medicine> medicines) {
         List<MedicineListRespDTO> dtoList = new ArrayList<>();
         for (Medicine medicine : medicines) {
             MedicineListRespDTO dto = new MedicineListRespDTO();

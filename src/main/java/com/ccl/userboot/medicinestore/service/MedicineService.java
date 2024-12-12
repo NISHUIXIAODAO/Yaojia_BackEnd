@@ -7,5 +7,5 @@ import com.ccl.userboot.medicinestore.dto.resp.MedicineListRespDTO;
 import java.util.List;
 
 public interface MedicineService extends IService<Medicine> {
-    List<MedicineListRespDTO> getUserList(Integer size, Integer offset);
+    List<MedicineListRespDTO> getMedicineList(Integer size, Integer offset);
 }
