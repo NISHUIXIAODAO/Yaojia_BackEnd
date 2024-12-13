@@ -7,10 +7,7 @@ import com.ccl.userboot.medicinestore.dto.resp.UserListRespDTO;
 import com.ccl.userboot.medicinestore.service.MedicineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +17,8 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
 
-    @GetMapping("/getMedicineList/{size}/{offset}")
-    public Result<List<MedicineListRespDTO>> getUserList(@PathVariable Integer size, @PathVariable Integer offset){
+    @GetMapping("/getMedicineList")
+    public Result getUserList(@RequestParam Integer size, @RequestParam Integer offset){
         List<MedicineListRespDTO> results = medicineService.getMedicineList(size, offset);
         return Results.success(results);
     }
