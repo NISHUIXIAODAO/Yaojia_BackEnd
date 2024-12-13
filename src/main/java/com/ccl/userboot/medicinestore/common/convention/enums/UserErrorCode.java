@@ -11,6 +11,8 @@ public enum UserErrorCode implements IErrorCode {
 
     USER_SAVE_ERROR("B000203","用户记录新增失败");
 
+
+
     private final String code;
 
     private final String message;

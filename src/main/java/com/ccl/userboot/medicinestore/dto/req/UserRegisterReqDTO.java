@@ -7,5 +7,5 @@ public class UserRegisterReqDTO {
     private String userName;
     private String userPassage;
     private String userEmail;
-    private String code;
+//    private String code;神经，哪有验证码
 }

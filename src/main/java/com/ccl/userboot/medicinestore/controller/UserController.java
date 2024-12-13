@@ -9,8 +9,11 @@ import com.ccl.userboot.medicinestore.dto.req.UserLoginReqDTO;
 import com.ccl.userboot.medicinestore.dto.req.UserRegisterReqDTO;
 import com.ccl.userboot.medicinestore.dto.resp.UserListRespDTO;
 import com.ccl.userboot.medicinestore.dto.resp.UserLoginRespDTO;
+import com.ccl.userboot.medicinestore.dto.resp.UserRegisterRespDTO;
 import com.ccl.userboot.medicinestore.service.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,14 +28,16 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<UserLoginRespDTO> login(@RequestParam String userEmail, @RequestParam String userPassage) {
-        UserLoginRespDTO resp = userService.login(userEmail,userPassage);
-        return ResponseEntity.ok(resp);
+    public Result<UserLoginRespDTO> login(HttpServletResponse response
+            , @RequestBody UserLoginReqDTO userLoginReqDTO) {
+        UserLoginRespDTO resp = userService.login(response,userLoginReqDTO);
+        return Results.success(resp);
     }
 
     @PostMapping("/register")
-    public void userRegister(@RequestBody UserRegisterReqDTO requestParam){
-
+    public Result<UserRegisterRespDTO> userRegister(@RequestBody UserRegisterReqDTO requestParam){
+        val result = userService.register(requestParam);
+        return Results.success(result);
     }
 
     @GetMapping("/code")
