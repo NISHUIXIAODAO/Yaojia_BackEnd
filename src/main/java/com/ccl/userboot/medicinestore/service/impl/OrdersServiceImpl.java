@@ -3,7 +3,6 @@ package com.ccl.userboot.medicinestore.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ccl.userboot.medicinestore.common.convention.exception.ClientException;
 import com.ccl.userboot.medicinestore.common.convention.result.Result;
 import com.ccl.userboot.medicinestore.common.convention.result.Results;
 import com.ccl.userboot.medicinestore.dao.entity.Orders;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * <p>
@@ -32,8 +32,8 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private OrdersMapper ordersMapper;
 
     @Override
-    public Result<Map<String, Object>> getAllOrders(int size, int pageNum) {
-        Page<Orders> page = new Page<>(pageNum, size, true);
+    public Result<Map<String, Object>> getAllOrders(int size, int offset) {
+        Page<Orders> page = new Page<>(offset, size, true);
         QueryWrapper<Orders> queryWrapper = new QueryWrapper<>();
 
         IPage<Orders> blogPage = ordersMapper.selectPage(page, queryWrapper);

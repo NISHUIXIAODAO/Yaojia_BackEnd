@@ -3,8 +3,8 @@ package com.ccl.userboot.medicinestore.controller;
 
 import com.ccl.userboot.medicinestore.common.convention.result.Result;
 import com.ccl.userboot.medicinestore.common.convention.result.Results;
-import com.ccl.userboot.medicinestore.dto.resp.DockerListRespDTO;
-import com.ccl.userboot.medicinestore.service.IDockersService;
+import com.ccl.userboot.medicinestore.dto.resp.DoctorListRespDTO;
+import com.ccl.userboot.medicinestore.service.IDoctorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +19,14 @@ import java.util.List;
  * @since 2024-12-12
  */
 @RestController
-@RequestMapping("/dockers")
-public class DockersController {
+@RequestMapping("/doctors")
+public class DoctorsController {
     @Autowired
-    private IDockersService dockersService;
+    private IDoctorsService doctorsService;
 
-    @GetMapping("/getDockerList")
-    public Result getDockerList(@RequestParam Integer size, @RequestParam Integer offset) {
-        List<DockerListRespDTO> results = dockersService.getDockerList(size,offset);
+    @GetMapping("/getDoctorList")
+    public Result getDoctorList(@RequestParam Integer size, @RequestParam Integer offset) {
+        List<DoctorListRespDTO> results = doctorsService.getDoctorList(size,offset);
         return Results.success(results);
     }
 

@@ -17,5 +17,5 @@ import java.util.Map;
  * @since 2024-12-10
  */
 public interface IOrdersService extends IService<Orders> {
-     Result<Map<String, Object>> getAllOrders(int size, int page);
+     Result<Map<String, Object>> getAllOrders(int size, int offset);
 }

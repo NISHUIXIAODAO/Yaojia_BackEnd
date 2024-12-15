@@ -28,8 +28,8 @@ public class OrdersController {
     private IOrdersService ordersService;
 
     @GetMapping("/getOrder")
-    public Result<Map<String, Object>> getAllOrders(@RequestParam int size,@RequestParam int pageNum){
-        return ordersService.getAllOrders(size, pageNum);
+    public Result<Map<String, Object>> getAllOrders(@RequestParam int size,@RequestParam int offset){
+        return ordersService.getAllOrders(size, offset);
     }
 
 }

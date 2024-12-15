@@ -1,6 +1,6 @@
 package com.ccl.userboot.medicinestore.dao.mapper;
 
-import com.ccl.userboot.medicinestore.dao.entity.Dockers;
+import com.ccl.userboot.medicinestore.dao.entity.Doctors;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2024-12-12
  */
 @Mapper
-public interface DockersMapper extends BaseMapper<Dockers> {
+public interface DoctorsMapper extends BaseMapper<Doctors> {
 
 }

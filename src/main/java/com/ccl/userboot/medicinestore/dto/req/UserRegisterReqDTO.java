@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class UserRegisterReqDTO {
     private String userName;
-    private String userPassage;
+    private String userPassword;
     private String userEmail;
 //    private String code;神经，哪有验证码
 }

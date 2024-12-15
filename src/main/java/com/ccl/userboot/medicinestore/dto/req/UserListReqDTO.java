@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class UserListReqDTO {
     private Integer size;
-    private Integer offest;
+    private Integer offset;
     // TODO token 放在请求头里
 }

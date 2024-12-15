@@ -7,7 +7,7 @@ public class PasswordCorrectStrategy implements AuthenticationStrategy{
     @Override
     public boolean authenticate(User user, UserLoginReqDTO userLoginReqDTO) {
         //判断密码是否正确
-        return user.getUserPassage().equals(userLoginReqDTO.getUserPassage()); // 密码是否匹配
+        return user.getUserPassword().equals(userLoginReqDTO.getUserPassword()); // 密码是否匹配
     }
 
     @Override

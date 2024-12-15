@@ -6,5 +6,5 @@ import lombok.Data;
 public class UserLoginReqDTO {
     private String userEmail;
 
-    private String userPassage;
+    private String userPassword;
 }

@@ -16,16 +16,16 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Dockers implements Serializable {
+public class Doctors implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "docker_id", type = IdType.AUTO)
-    private Integer dockerId;
+    @TableId(value = "doctor_id", type = IdType.AUTO)
+    private Integer doctorId;
 
-    private String dockerName;
+    private String doctorName;
 
-    private String dockerWorkload;
+    private String doctorWorkload;
 
 
 }

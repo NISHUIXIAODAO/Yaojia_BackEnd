@@ -104,7 +104,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>implements Use
     public UserRegisterRespDTO register(UserRegisterReqDTO userRegisterReqDTO) {
         val user = User.builder()
                 .userName(userRegisterReqDTO.getUserName())
-                .userPassage(userRegisterReqDTO.getUserPassage())
+                .userPassword(userRegisterReqDTO.getUserPassword())
                 .userEmail(userRegisterReqDTO.getUserEmail())
                 .build();
         val insert = baseMapper.insert(user);
