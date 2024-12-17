@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/medicine")
 public class MedicineController {
-    @Autowired
-    private MedicineService medicineService;
+    private final MedicineService medicineService;
 
     @GetMapping("/getMedicineList")
     public Result getUserList(@RequestParam Integer size, @RequestParam Integer offset){

@@ -16,8 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        log.info("添加拦截器");
-
+        log.info("add interceptors");
 
         // 配置用户拦截器
         registry.addInterceptor(userInterceptor)

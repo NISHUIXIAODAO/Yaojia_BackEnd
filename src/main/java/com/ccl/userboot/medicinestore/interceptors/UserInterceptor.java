@@ -22,32 +22,21 @@ public class UserInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        // 获取用户登录凭证
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("TOKEN".equals(cookie.getName())) {
-                    String token = cookie.getValue();
-                    Claims claims;
-                    String userEmail;// 获取用户email
-                    String uri = request.getRequestURI();
-                    log.info("访问uri => " + uri);
-                    if (token != null && (claims = JwtUtils.parseJWT(token)) != null && (userEmail = JwtUtils.getUserName(claims)) != null) {
-                        //获取用户id
-                        val userId = userUtils.getUserId(token);
-                        boolean exitUser = userUtils.existUser(userId);
-                        if (!exitUser) {
-                            log.error("不存在此用户");
-                            throw new ClientException(UserErrorCode.USER_NULL);
-                        }
-                        log.info("放行用户{},访问接口{}", userId, uri);
-                        return true;
-
-
-                    }
-                }
-
+        String token = request.getParameter("token");
+        Claims claims;
+        String userEmail;// 获取用户email
+        String uri = request.getRequestURI();
+        log.info("访问uri => " + uri);
+        if (token != null && (claims = JwtUtils.parseJWT(token)) != null && (userEmail = JwtUtils.getUserName(claims)) != null) {
+            //获取用户id
+            val userId = userUtils.getUserId(token);
+            boolean exitUser = userUtils.existUser(userId);
+            if (!exitUser) {
+                log.error("不存在此用户");
+                throw new ClientException(UserErrorCode.USER_NULL);
             }
+            log.info("放行用户{},访问接口{}", userId, uri);
+            return true;
         }
         return false;
     }

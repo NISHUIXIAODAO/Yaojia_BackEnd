@@ -9,13 +9,21 @@ import com.ccl.userboot.medicinestore.dao.entity.Medicine;
 import com.ccl.userboot.medicinestore.dao.mapper.MedicineMapper;
 import com.ccl.userboot.medicinestore.dto.resp.MedicineListRespDTO;
 import com.ccl.userboot.medicinestore.service.MedicineService;
+import lombok.val;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class MedicineServiceImpl extends ServiceImpl<MedicineMapper, Medicine> implements MedicineService {
+
+    List<String> counts = Arrays.asList("10", "23","67","88");
+
+    List<String> department = Arrays.asList("协和医院","人民医院","小丑医院");
+
     @Override
     public List<MedicineListRespDTO> getMedicineList(Integer size, Integer offset) {
         Page<Medicine> page = new Page<>(offset, size);
@@ -28,8 +36,11 @@ public class MedicineServiceImpl extends ServiceImpl<MedicineMapper, Medicine> i
 
     public List<MedicineListRespDTO> convertMedicineListToDtoList(List<Medicine> medicines) {
         List<MedicineListRespDTO> dtoList = new ArrayList<>();
+        Random random = new Random();
         for (Medicine medicine : medicines) {
             MedicineListRespDTO dto = new MedicineListRespDTO();
+            dto.setCount(counts.get(random.nextInt(4)));
+            dto.setDepartment(department.get(random.nextInt(3)));
             BeanUtil.copyProperties(medicine, dto);
             dtoList.add(dto);
         }

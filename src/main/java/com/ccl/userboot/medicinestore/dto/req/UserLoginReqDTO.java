@@ -5,6 +5,5 @@ import lombok.Data;
 @Data
 public class UserLoginReqDTO {
     private String userEmail;
-
     private String userPassword;
 }

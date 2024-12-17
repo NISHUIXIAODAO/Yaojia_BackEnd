@@ -35,8 +35,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public Result<UserRegisterRespDTO> userRegister(@RequestBody UserRegisterReqDTO requestParam){
-        val result = userService.register(requestParam);
+    public Result<UserRegisterRespDTO> userRegister(HttpServletResponse response, @RequestBody UserRegisterReqDTO requestParam){
+        val result = userService.register(response, requestParam);
         return Results.success(result);
     }
 

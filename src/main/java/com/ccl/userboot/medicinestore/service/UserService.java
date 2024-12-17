@@ -16,5 +16,5 @@ public interface UserService extends IService<User> {
 
     UserLoginRespDTO login(HttpServletResponse response, UserLoginReqDTO userLoginReqDTO);
 
-    UserRegisterRespDTO register(UserRegisterReqDTO userRegisterReqDTO);
+    UserRegisterRespDTO register(HttpServletResponse response, UserRegisterReqDTO userRegisterReqDTO);
 }

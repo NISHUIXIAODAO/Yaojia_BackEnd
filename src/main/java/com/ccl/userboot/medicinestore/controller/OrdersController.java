@@ -3,6 +3,7 @@ package com.ccl.userboot.medicinestore.controller;
 
 import com.ccl.userboot.medicinestore.common.convention.result.Result;
 import com.ccl.userboot.medicinestore.service.IOrdersService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +22,12 @@ import java.util.Map;
  * @since 2024-12-10
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/orders")
 public class OrdersController {
+    private final IOrdersService ordersService;
 
-    @Autowired
-    private IOrdersService ordersService;
-
-    @GetMapping("/getOrder")
+    @GetMapping("/getOrderList")
     public Result<Map<String, Object>> getAllOrders(@RequestParam int size,@RequestParam int offset){
         return ordersService.getAllOrders(size, offset);
     }

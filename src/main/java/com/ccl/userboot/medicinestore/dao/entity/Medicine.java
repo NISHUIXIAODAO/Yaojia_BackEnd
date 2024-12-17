@@ -8,7 +8,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-@TableName("Medicine")
+@TableName("medicine")
 public class Medicine {
     @TableId(value = "medicine_id", type = IdType.AUTO)
 

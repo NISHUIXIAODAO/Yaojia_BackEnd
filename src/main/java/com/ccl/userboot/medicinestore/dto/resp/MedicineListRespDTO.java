@@ -6,6 +6,8 @@ import lombok.Data;
 public class MedicineListRespDTO {
     private Integer medicineId;
     private String medicineName;
+    private String count;
+    private String department;
     private String medicineFunction;
     private String medicinePrice;
 }
